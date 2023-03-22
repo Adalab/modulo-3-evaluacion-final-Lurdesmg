@@ -1,5 +1,5 @@
-const getApi = () => {
-    return fetch ('https://hp-api.onrender.com/api/characters/house/gryffindor')
+const getApi = (house) => {
+    return fetch (`https://hp-api.onrender.com/api/characters/house/${house}`)
     .then ((response) => response.json())
     .then ((data) => {
         const cleanData = data.map((eachCharacter) => {

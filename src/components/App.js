@@ -13,24 +13,29 @@ import '../styles/App.scss';
 function App() {
   const [characterList , setCharacterList] = useState ([]);
   const [filterCharacter , setFilterCharacter] = useState ('');
-  //const [house , setHouse] = useState ();
+  const [filterHouse , setFilterHouse] = useState ('Gryffindor');
 
   useEffect (() => {
-    getApi().then((cleanData) => {
+    getApi(filterHouse).then((cleanData) => {
       setCharacterList(cleanData);
     });
-  }, []);
+  }, [filterHouse]);
 
   const handleCharacter = (value) => {
     setFilterCharacter(value);
   };
 
+   const handleHouse = (value) => {
+    setFilterHouse(value);
+  }
+
   const renderCharacter = () => {
     return characterList
     .filter((oneCharacter) => {
-       return oneCharacter.name.toLowerCase().includes(filterCharacter.toLowerCase());})
-    
-  };
+       return oneCharacter.name.toLowerCase().includes(filterCharacter.toLowerCase());
+      })
+  
+       };
 
   return <div className="App">
     <header>
@@ -38,13 +43,15 @@ function App() {
         <img src={harry} alt="" />
 
         <Filters
-          filterCharacter={filterCharacter}
-          handleCharacter={handleCharacter}         
+          filterCharacter = {filterCharacter}
+          handleCharacter = {handleCharacter} 
+          handleHouse = {handleHouse}
+          filterHouse = {filterHouse} 
           />
         
     </header>
     <main>
-        <CharacterList characterList={renderCharacter()}
+        <CharacterList characterList={renderCharacter()}  
         />
     </main>
     <footer>

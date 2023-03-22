@@ -1,15 +1,19 @@
 import FilterName from './FilterName';
 import FilterHouse from './FilterHouse';
 
-function Filters ({handleCharacter, filterCharacter}) {
+function Filters (props) {
     return (
         <section className="filter">
             <form>
             <FilterName
-            filterCharacter={filterCharacter}
-            handleCharacter={handleCharacter}
+            filterCharacter={props.filterCharacter}
+            handleCharacter={props.handleCharacter}
             />
-            <FilterHouse/>
+            <FilterHouse
+            filterHouse={props.filterHouse}
+            handleHouse={props.handleHouse}
+            characterList= {props.characterList}
+            />
         </form>
         </section>
     );
