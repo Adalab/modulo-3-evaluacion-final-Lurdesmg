@@ -1,0 +1,21 @@
+@import '../core/variables.scss';
+
+.filter {
+    border: 0.2rem black solid;
+    padding: 0.5rem;
+    
+    
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.input {
+    font-size: 1rem;
+}
+.input-place {
+    font-size: 0.8rem;
+}

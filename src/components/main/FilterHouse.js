@@ -1,10 +1,12 @@
+import '../../styles/layout/Filters.scss'
+
 function FilterHouse ({handleHouse, house}) {
     const handleChangeHouse = (ev) => { 
         handleHouse(ev.target.value);
     };
         return (
-        <label htmlFor="house"> Selecciona por Casa: 
-                <select 
+        <label className="input" htmlFor="house"> Selecciona por Casa: 
+                <select className='input-place'
                 name="house"
                 id="house"
                 onChange={handleChangeHouse}

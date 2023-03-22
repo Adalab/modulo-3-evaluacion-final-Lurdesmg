@@ -1,0 +1,28 @@
+.card {
+    width: 30rem;
+    background-color: lightslategrey;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.card-img {
+    width: 15rem;
+    height: 20rem;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.card_itemList-name {
+    font-size: 1.5rem;
+    color: black;
+}
+.card_itemList-p {
+    font-size: 1.2rem;
+}
+
+

@@ -1,4 +1,6 @@
-function FilterName ({ handleCharacter, filterCharacter}) {
+import '../../styles/layout/Filters.scss'
+
+function FilterName ({ handleCharacter, characterList}) {
     const handleChange = (ev) => {
         const value = ev.target.value;
         handleCharacter(value);
@@ -6,10 +8,10 @@ function FilterName ({ handleCharacter, filterCharacter}) {
 
     return (
         <>
-        <label htmlFor="name"> Busca por personaje: 
-                <input 
+        <label className="input" htmlFor="name"> Busca por personaje: 
+                <input className='input-place'
                 onInput={handleChange} 
-                value={filterCharacter}
+                value={characterList}
                 type="text" 
                 id="name" 
                 placeholder="ej. Luna" />

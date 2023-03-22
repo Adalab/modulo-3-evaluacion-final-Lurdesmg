@@ -1,3 +1,4 @@
+import '../../styles/layout/CardCharacter.scss'
 import CharacterCard from './CharacterCard';
 
 function CharacterList ({characterList}) {
@@ -8,7 +9,7 @@ function CharacterList ({characterList}) {
     />;
  });
     return(
-        <ul>
+        <ul className='list'>
             {dataHtml}
         </ul>
     ) 

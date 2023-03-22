@@ -4,13 +4,12 @@ import FilterHouse from './FilterHouse';
 function Filters (props) {
     return (
         <section className="filter">
-            <form>
+            <form className='form'>
             <FilterName
-            filterCharacter={props.filterCharacter}
+            characterList={props.characterList}
             handleCharacter={props.handleCharacter}
             />
-            <FilterHouse
-            filterHouse={props.filterHouse}
+            <FilterHouse  
             handleHouse={props.handleHouse}
             characterList= {props.characterList}
             />

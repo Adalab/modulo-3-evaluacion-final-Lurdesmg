@@ -1,1 +1,7 @@
-/* Aquí van tus estilos */
+@import 'core/reset';
+@import 'layout/Header';
+@import 'layout/Main.scss';
+@import 'layout/Filters.scss';
+@import 'layout/CardCharacter.scss';
+@import 'layout/Footer.scss';
+@import 'layout/CharacterDetail.scss';

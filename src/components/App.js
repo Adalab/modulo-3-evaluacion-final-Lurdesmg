@@ -1,15 +1,16 @@
-/* SECCIÓN DE IMPORT */
 import { useState , useEffect } from 'react';
 import 'react-router-dom';
-//import { Route, Routes , matchPath, useLocation } from 'react-router-dom';
+import { Route, Routes , matchPath, useLocation } from 'react-router-dom';
 
 import getApi from '../services/api';
-import CharacterList from './CharacterList';
-import Filters from './Filters';
-import harry from '../images/harry_potter-logo.jpg'
+import CharacterList from './main/CharacterList';
+import Header from './Header';
+import Filters from './main/Filters';
+import Footer from './Footer';
+import CharacterDetail from './CharacterDetail';
 import '../styles/App.scss';
 
-/* SECCIÓN DEL COMPONENTE */
+
 function App() {
   const [characterList , setCharacterList] = useState ([]);
   const [filterCharacter , setFilterCharacter] = useState ('');
@@ -34,29 +35,42 @@ function App() {
     .filter((oneCharacter) => {
        return oneCharacter.name.toLowerCase().includes(filterCharacter.toLowerCase());
       })
-  
        };
 
-  return <div className="App">
-    <header>
-        <h1>Harry Potter</h1>
-        <img src={harry} alt="" />
+  const { pathname } = useLocation();
+  const routeData = matchPath('/character/:id', pathname);
+  const characterId = routeData === null ? null :routeData.params.id;
+  const characterFind = characterList.find(
+    (oneCharacter) => oneCharacter.id === characterId
+  );
 
-        <Filters
-          filterCharacter = {filterCharacter}
-          handleCharacter = {handleCharacter} 
-          handleHouse = {handleHouse}
-          filterHouse = {filterHouse} 
-          />
-        
-    </header>
-    <main>
-        <CharacterList characterList={renderCharacter()}  
+  return <div className="App">
+    <Header/>
+    <main className='main'>
+      <Routes>
+        <Route
+        path='/' element={
+          <>
+            <Filters
+            filterCharacter = {filterCharacter}
+            handleCharacter = {handleCharacter} 
+            handleHouse = {handleHouse}
+            filterHouse = {filterHouse} 
+            />
+
+            <CharacterList characterList={renderCharacter()}/>
+          </>
+        }
+        ></Route>
+        <Route
+        path='/character:id'
+        element= { < CharacterDetail
+        characterFind = {characterFind}/>}
         />
+      </Routes>
+    
     </main>
-    <footer>
-        <img src="" alt="" />
-    </footer>
+    <Footer/>
     </div>;
 }
 
