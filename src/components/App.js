@@ -5,6 +5,7 @@ import 'react-router-dom';
 
 import getApi from '../services/api';
 import CharacterList from './CharacterList';
+import Filters from './Filters';
 import harry from '../images/harry_potter-logo.jpg'
 import '../styles/App.scss';
 
@@ -20,38 +21,30 @@ function App() {
     });
   }, []);
 
-  const handleCharacter = (ev) => {
-    setFilterCharacter(ev.target.value);
+  const handleCharacter = (value) => {
+    setFilterCharacter(value);
   };
 
-  // const renderCharacter = () => {
-  //   return filterCharacter
-  //   .filter((eachCharacter) => eachCharacter.characterList.toLowerCase().includes(filterCharacter.toLowerCase()))
-  // };
+  const renderCharacter = () => {
+    return characterList
+    .filter((oneCharacter) => {
+       return oneCharacter.name.toLowerCase().includes(filterCharacter.toLowerCase());})
+    
+  };
 
   return <div className="App">
     <header>
         <h1>Harry Potter</h1>
         <img src={harry} alt="" />
-        <form>
-          <fieldset>
-            <label htmlFor="name"> Busca por personaje: 
-                <input onInput={handleCharacter} value={filterCharacter} type="text" id="name" placeholder="ej. Luna" />
-            </label>
-            <label htmlFor="character"> Seleccion la Casa: 
-                <select name="house" id="house">
-                    <option value="Griffindor">Griffindor</option>
-                    <option value="Hufflepuff">Hufflepuff</option>
-                    <option value="Ravenclaw">Ravenclaw</option>
-                    <option value="Slytherin">Slytherin</option>
-                </select>
-            </label>
-          </fieldset>
-        </form>
+
+        <Filters
+          filterCharacter={filterCharacter}
+          handleCharacter={handleCharacter}         
+          />
+        
     </header>
     <main>
-        <CharacterList characterList={characterList}
-        // } renderCharacter={renderCharacter()}/>
+        <CharacterList characterList={renderCharacter()}
         />
     </main>
     <footer>
@@ -60,7 +53,4 @@ function App() {
     </div>;
 }
 
-/* PROP-TYPES */
-
-/* EXPORT DEL COMPONENTE */
 export default App;

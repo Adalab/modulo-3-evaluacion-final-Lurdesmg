@@ -1,12 +1,12 @@
 import CharacterCard from './CharacterCard';
 
-function CharacterList ({characterList , renderCharacter}) {
+function CharacterList ({characterList}) {
  const dataHtml = characterList.map((eachCharacter) => {
     return <CharacterCard eachCharacter={eachCharacter} key={eachCharacter.id}/>;
  });
     return(
         <ul>
-            {dataHtml}{renderCharacter}
+            {dataHtml}
         </ul>
     ) 
 }
