@@ -49,7 +49,7 @@ function App() {
     <main className='main'>
       <Routes>
         <Route
-        path='/' element={
+        path='/' element = {
           <>
             <Filters
             filterCharacter = {filterCharacter}
@@ -63,9 +63,9 @@ function App() {
         }
         ></Route>
         <Route
-        path='/character:id'
-        element= { < CharacterDetail
-        characterFind = {characterFind}/>}
+          path='/character/:id'
+          element= { < CharacterDetail
+          characterFind = {characterFind}/>}
         />
       </Routes>
     
