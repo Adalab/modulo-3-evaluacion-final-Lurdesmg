@@ -6,7 +6,7 @@ function CharacterDetail ({characterFind}) {
     return characterFind ? (
         <>
             <h2 className='phrase'>Caracteristicas del Personaje</h2>
-            <Link to="/"> 
+             <Link className='link' to="/"><i class="link-arrow fa-solid fa-arrow-left"></i>Atras</Link>
                 <div className="card-detail">
                 <div className='card_img'>
                     <img
@@ -16,7 +16,8 @@ function CharacterDetail ({characterFind}) {
                     title= {characterFind.mane}
                     ></img>
                 </div>
-                <section className='card-context'>
+                <section className='card-context'> 
+                  
                     <h3 className="card_itemList-name">{characterFind.name}</h3>
                     <p className="card_itemList-p">Casa: {characterFind.house}</p>
                     <p className="card_itemList-p">Especie: {characterFind.specie}</p>
@@ -27,7 +28,6 @@ function CharacterDetail ({characterFind}) {
                     
                 </section>
                 </div>
-            </Link>
         </>
     ) : (
         <p>No se ha encontardo este personaje</p>

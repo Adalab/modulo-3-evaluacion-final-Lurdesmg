@@ -9,7 +9,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 2rem;
-    width: 30rem;
+    width: 25rem;
     background-color: gold;
     border-radius: 2rem;
     display: flex;
@@ -17,15 +17,35 @@
     justify-content: space-evenly;
 }
 
-.card_img {
+.card__img {
     width: 10rem;
-    height: 15rem;
+    height: 13rem;
+    border-radius: 1rem;
 }
 
 .card-context {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.link {
+    display: block;
+    width: 4.5rem;
+    padding: 0.3rem;
+    background-color: #333;
+    border: #333 solid 0.2rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 1rem;
+    margin: 0.5rem 0;
+    position: relative;
+    left: 22rem;
+    border: 0.2 rem black solid;
+    font-size: 1rem;
+}
+.link-arrow {
+    color: lightgrey;
+    font-weight: bold;
 }
 
 .card_itemList-name {
